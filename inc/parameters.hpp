@@ -3,33 +3,39 @@
 
 /******************************************************************************/
 
+#include<QColor>
+
+/******************************************************************************/
+
 namespace ProjOpt {
 
 /******************************************************************************/
 
-constexpr const char * const windowTitle = "3D Cube";
+constexpr const char * windowTitle = "3D Cube";
 
-constexpr const int windowWidth = 640;
+constexpr int windowWidth = 640;
 
-constexpr const int windowHeight = 480;
-
-/******************************************************************************/
-
-constexpr const char * const defaultComName = "COM6";
-
-constexpr const char * const defaultComBaudRate = "115200";
+constexpr int windowHeight = 480;
 
 /******************************************************************************/
 
-constexpr const float cuboidScale = 5.0f;
+constexpr const char * defaultComName = "COM6";
 
-constexpr const int cuboidColor = 0x7c43bd;
+constexpr const char * defaultComBaudRate = "115200";
 
 /******************************************************************************/
 
-constexpr const int packageSize = 2;
+constexpr float cuboidScale = 3.f;
 
-constexpr const int coordEps = 2;
+const QColor cuboidColor = QRgb(0x7c43bd);
+
+const QColor sceneAppearanceColor = 0xd7ccc8;
+
+/******************************************************************************/
+
+constexpr int packageSize = 2;
+
+constexpr int coordEps = 2;
 
 /******************************************************************************/
 
