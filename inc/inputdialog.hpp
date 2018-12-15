@@ -4,7 +4,7 @@
 /******************************************************************************/
 
 #include <QDialog>
-#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QPushButton>
 
 /******************************************************************************/
@@ -47,7 +47,9 @@ private:
 
     void initializeWidget() noexcept;
 
-    void connectWidget() noexcept;
+    void addElements() noexcept;
+
+    void fillComboBoxes() noexcept;
 
 /******************************************************************************/
 
@@ -65,13 +67,9 @@ private:
 
     VirtualPort* m_pSerialPort;
 
-    QLineEdit* m_pTxtComPort;
+    QComboBox* m_pTxtComPort;
 
-    QLineEdit* m_pTxtBaudRate;
-
-    QPushButton* m_pCmdOk;
-
-    QPushButton* m_pCmdCancel;
+    QComboBox* m_pTxtBaudRate;
 
 /******************************************************************************/
 

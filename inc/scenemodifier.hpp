@@ -26,9 +26,6 @@ public:
 
     explicit SceneModifier( Qt3DCore::QEntity* rootEntity );
 
-    SceneModifier ( const SceneModifier& ) = delete;
-    SceneModifier& operator = ( const SceneModifier& ) = delete;
-
     ~SceneModifier() = default;
 
 /******************************************************************************/
@@ -46,6 +43,10 @@ public:
 /******************************************************************************/
 
 private:
+
+/******************************************************************************/
+
+    Q_DISABLE_COPY(SceneModifier)
 
 /******************************************************************************/
 

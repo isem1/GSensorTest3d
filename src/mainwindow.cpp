@@ -46,6 +46,8 @@ MainWindow::initWidget()
     m_pRootEntity = new Qt3DCore::QEntity();
 
     setWindowTitle(ProjOpt::windowTitle);
+    setFixedWidth( ProjOpt::windowWidth );
+    setFixedHeight( ProjOpt::windowHeight );
 }
 
 /******************************************************************************/
@@ -59,7 +61,7 @@ MainWindow::init3DView()
     auto frameGraph = m_p3dView->defaultFrameGraph();
     frameGraph->setClearColor( ProjOpt::sceneAppearanceColor );
 
-    Qt3DInput::QInputAspect *input =new Qt3DInput::QInputAspect;
+    Qt3DInput::QInputAspect* input = new Qt3DInput::QInputAspect();
     m_p3dView->registerAspect( input );
 }
 
@@ -69,8 +71,6 @@ void
 MainWindow::initWindowContainer()
 {
     m_pWindowContainer = QWidget::createWindowContainer( m_p3dView );
-    m_pWindowContainer->setFixedWidth( ProjOpt::windowWidth );
-    m_pWindowContainer->setFixedHeight( ProjOpt::windowHeight );
 
     QHBoxLayout *hLayout = new QHBoxLayout( this );
     QVBoxLayout *vLayout = new QVBoxLayout();

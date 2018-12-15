@@ -3,6 +3,7 @@
 
 /******************************************************************************/
 
+#include <QSerialPortInfo>
 #include <QSerialPort>
 #include <QString>
 
