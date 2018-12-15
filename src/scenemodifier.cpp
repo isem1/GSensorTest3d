@@ -15,15 +15,18 @@ SceneModifier::SceneModifier( Qt3DCore::QEntity* rootEntity )
 
     // CuboidMesh Transform
     m_transformData = new Qt3DCore::QTransform();
+
     m_transformData->setScale( ProjOpt::cuboidScale );
-    m_transformData->setTranslation( QVector3D( 5.0f, -4.0f, 0.0f ) );
+    m_transformData->setTranslation( QVector3D( 5.0f, 5.0f, 5.0f ) );
 
     // Cuboid material init
     Qt3DExtras::QPhongMaterial *cuboidMaterial = new Qt3DExtras::QPhongMaterial();
-    cuboidMaterial->setDiffuse( QColor( QRgb( ProjOpt::cuboidColor ) ) );;
+
+    cuboidMaterial->setDiffuse( ProjOpt::cuboidColor );
 
     // Cuboid
     m_cuboidEntity = new Qt3DCore::QEntity( rootEntity );
+
     m_cuboidEntity->addComponent( cuboid );
     m_cuboidEntity->addComponent( cuboidMaterial );
     m_cuboidEntity->addComponent( m_transformData );

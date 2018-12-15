@@ -11,7 +11,7 @@
 /******************************************************************************/
 
 class SceneModifier
-    : public QObject
+    :   public QObject
 {
 
 /******************************************************************************/
@@ -25,6 +25,9 @@ public:
 /******************************************************************************/
 
     explicit SceneModifier( Qt3DCore::QEntity* rootEntity );
+
+    SceneModifier ( const SceneModifier& ) = delete;
+    SceneModifier& operator = ( const SceneModifier& ) = delete;
 
     ~SceneModifier() = default;
 
