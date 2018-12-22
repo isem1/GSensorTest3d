@@ -32,3 +32,6 @@
 
 # Project files
 *.user
+
+#Directories
+build/

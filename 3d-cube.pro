@@ -7,7 +7,6 @@ VERSION = 0.9.0.1
 RC_ICONS = res/icon.ico
 
 INCLUDEPATH += inc
-
 QT += 3dcore 3drender 3dinput 3dextras
 QT += widgets
 QT += serialport
