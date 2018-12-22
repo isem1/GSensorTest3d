@@ -1,6 +1,6 @@
 # Building with CMake
 
-  - Install Qt Framework, install CMake. Create or add to existing environment variable CMAKE_PREFIX_PATH path to Qt root directory( for instance, if  you've installed  Qt on C drive - the root directory would be __C:\Qt__
+  - Install Qt Framework, install CMake. Create or add to existing environment variable CMAKE_PREFIX_PATH path to Qt root directory( for instance, if  you've installed  Qt on C drive - the root directory would be __C:/Qt__
   - Don't forget to install x32 or x64 compiler (for example  MSVC 2015/2017 )and add  it's path to environment variable PATH. 
   - Download sources and create folder __build__ with subfolders __x32__ and __x64__
 ## Configure x64 version
@@ -20,7 +20,7 @@ cmake -G "Visual Studio 15 2017" ../..-DCMAKE_PREFIX_PATH=PATH_TO_COMPILER
 Where PATH_TO_COMPILER is full path to compiler's bin. For instance , command for msvc2015 and Qt 5.11.0 may be:
     
 ```
-cmake -G "Visual Studio 15 2017" ../..-DCMAKE_PREFIX_PATH=C://Qt\5.11.0//msvc2015//
+cmake -G "Visual Studio 15 2017" ../..-DCMAKE_PREFIX_PATH=C://Qt//5.11.0//msvc2015//
 ```
 
 ## Build project
