@@ -5,19 +5,35 @@
   - Download sources and create folder __build__ with subfolders __x32__ and __x64__
 ## Configure x64 version
   - Navigate to folder __build/x64__ and open console/powershell. 
-  - Configure project. Execute command:
-   ``` cmake -G "Visual Studio 15 2017 Win64"  ../..```  for configure x64-debug version
+  - Configure project. Execute command for configure x64-debug version
+
+```
+   cmake -G "Visual Studio 15 2017 Win64"  ../..
+``` 
+
 ## Configure x32 version
   - Navigate to folder __build/x32__ and execute
-  ```cmake -G "Visual Studio 15 2017" ../..-DCMAKE_PREFIX_PATH=PATH_TO_COMPILER```
-    Where PATH_TO_COMPILER is full path to compiler's bin. For instance , command for msvc2015 and Qt 5.11.0 may be:
-```cmake -G "Visual Studio 15 2017" ../..-DCMAKE_PREFIX_PATH=C://Qt\5.11.0//msvc2015//```
+
+```
+cmake -G "Visual Studio 15 2017" ../..-DCMAKE_PREFIX_PATH=PATH_TO_COMPILER
+```
+Where PATH_TO_COMPILER is full path to compiler's bin. For instance , command for msvc2015 and Qt 5.11.0 may be:
+    
+```
+cmake -G "Visual Studio 15 2017" ../..-DCMAKE_PREFIX_PATH=C://Qt\5.11.0//msvc2015//
+```
 
 ## Build project
   - Commands must be executed in build directory (build/x32 or build/x64) after succesful configure project with CMake tool.
   - For builduing Debug version( builds by default ) execute command in directory:
-  ``` cmake --build .```
+ 
+```
+cmake --build .
+```
   - For building Release version execute:
-  ``` cmake --build . --config Release```
+
+```
+cmake --build . --config Release
+```
 
 
