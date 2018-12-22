@@ -52,13 +52,15 @@ set( SOURCES 	${SOURCE_DIR}/main.cpp
                 ${SOURCE_DIR}/scenemodifier.cpp
                 ${SOURCE_DIR}/inputdialog.cpp
                 ${SOURCE_DIR}/serialport.cpp
-                ${SOURCE_DIR}/mainwindow.cpp )
+                ${SOURCE_DIR}/mainwindow.cpp
+                ${SOURCE_DIR}/modelloader.cpp )
 
 set( HEADER_FILES 	${HEADER_DIR}/scenemodifier.hpp
                         ${HEADER_DIR}/inputdialog.hpp
                         ${HEADER_DIR}/serialport.hpp
                         ${HEADER_DIR}/parameters.hpp
-                        ${HEADER_DIR}/mainwindow.hpp )
+                        ${HEADER_DIR}/mainwindow.hpp
+                        ${HEADER_DIR}/modelloader.hpp )
 
 message( "Added source files:" ${SOURCES} )
 

@@ -1,26 +1,21 @@
-#ifndef __MAINWINDOW_HPP__
-#define __MAINWINDOW_HPP__
+#ifndef __MODELLOADER_HPP__
+#define __MODELLOADER_HPP__
+
 
 /******************************************************************************/
 
-#include <QWidget>
-
-#include <Qt3DExtras/qt3dwindow.h>
-#include <Qt3DExtras/qfirstpersoncameracontroller.h>
-
-#include <memory>
+#include <QtCore/QObject>
+#include <QFileDialog>
+#include <QShortcut>
 
 /******************************************************************************/
 
 class SceneModifier;
-class InputDialog;
-class VirtualPort;
-class ModelLoader;
 
 /******************************************************************************/
 
-class MainWindow
-    : public QWidget
+class ModelLoader
+    :   public QWidget
 {
 
 /******************************************************************************/
@@ -33,33 +28,29 @@ public:
 
 /******************************************************************************/
 
-    explicit MainWindow(QWidget* _parent = nullptr);
+    explicit ModelLoader( QWidget* _parent = nullptr );
 
-    ~MainWindow();
-
-/******************************************************************************/
-
-private slots:
+    ~ModelLoader();
 
 /******************************************************************************/
 
-    void initWidget();
-
-    void init3DView();
-
-    void initWindowContainer();
-
-    void initCamController();
+    QString getPathToModel() const;
 
 /******************************************************************************/
 
-    void initSceneModifier();
+    void setSceneModifier( SceneModifier* _sceneModifier );
 
-    void initInputDialog();
+/******************************************************************************/
 
-    void initVirtualPort();
+public slots:
 
-    void initModelLoader();
+    void hotkeyClicked();
+
+/******************************************************************************/
+
+signals:
+
+    void modelPathChanged();
 
 /******************************************************************************/
 
@@ -67,28 +58,22 @@ private:
 
 /******************************************************************************/
 
-    QWidget* m_pWindowContainer;
-
-    Qt3DCore::QEntity* m_pRootEntity;
-
-    Qt3DExtras::Qt3DWindow* m_p3dView;
-
-    Qt3DExtras::QFirstPersonCameraController* m_pCamController;
+    void connectSignals();
 
 /******************************************************************************/
+
+    Q_DISABLE_COPY(ModelLoader)
+
+    QString m_pathToModel;
+
+    QShortcut* m_keyCtlD;
 
     SceneModifier* m_pSceneModifier;
 
-    InputDialog* m_pInputDialog;
+/******************************************************************************/
 
-    VirtualPort* m_pVirtualPort;
-
-    ModelLoader* m_modelLoader;
+}; // class ModelLoader
 
 /******************************************************************************/
 
-}; // class MainWindow
-
-/******************************************************************************/
-
-#endif // __MAINWINDOW_HPP__
+#endif // __MODELLOADER_HPP__
