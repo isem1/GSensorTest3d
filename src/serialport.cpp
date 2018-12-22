@@ -16,8 +16,11 @@ VirtualPort::VirtualPort()
 
 VirtualPort::~VirtualPort()
 {
+    if( m_hComPort == nullptr )
+        return;
+
     if( m_hComPort->isOpen() )
-            m_hComPort->close();
+        m_hComPort->close();
     delete m_hComPort;
 
     qDebug() << "-----------------------------------";

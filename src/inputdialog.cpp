@@ -1,6 +1,7 @@
 #include <QtGui>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QCommonStyle>
 
 #include <QtCore/QDebug>
 
@@ -15,15 +16,14 @@ InputDialog::InputDialog( QWidget* _pWidget )
                 _pWidget
             ,       Qt::WindowTitleHint
                 |   Qt::WindowSystemMenuHint
+                |   Qt::WindowCloseButtonHint
         )
 {
     m_pSerialPort = nullptr;
 
     initializeWidget();
-    connectWidget();
-
-    setWindowTitle( "Port config" );
-    setMinimumSize( 200, 120 );
+    addElements();
+    fillComboBoxes();
 }
 
 /******************************************************************************/
@@ -32,8 +32,6 @@ InputDialog::~InputDialog()
 {
     delete m_pTxtComPort;
     delete m_pTxtBaudRate;
-    delete m_pCmdOk;
-    delete m_pCmdCancel;
 }
 
 /******************************************************************************/
@@ -49,7 +47,7 @@ InputDialog::setSerialPort( VirtualPort* _pComPort ) noexcept
 QString
 InputDialog::getComPort() const noexcept
 {
-    return m_pTxtComPort->text();
+    return m_pTxtComPort->currentText();
 }
 
 /******************************************************************************/
@@ -57,7 +55,7 @@ InputDialog::getComPort() const noexcept
 QString
 InputDialog::getBaudRate() const noexcept
 {
-    return m_pTxtBaudRate->text();
+    return m_pTxtBaudRate->currentText();
 }
 
 /******************************************************************************/
@@ -65,11 +63,19 @@ InputDialog::getBaudRate() const noexcept
 void
 InputDialog::initializeWidget() noexcept
 {
-    m_pTxtComPort = new QLineEdit;
-    m_pTxtBaudRate  = new QLineEdit;
+    setWindowIcon( style()->standardIcon( QStyle::SP_DialogYesButton ) );
+    setWindowModality( Qt::WindowModal );
+    setWindowTitle( "Port config" );
+    setFixedSize( 200, 120 );
+}
 
-    m_pTxtComPort->setText( ProjOpt::defaultComName );
-    m_pTxtBaudRate->setText( ProjOpt::defaultComBaudRate );
+/******************************************************************************/
+
+void
+InputDialog::addElements() noexcept
+{
+    m_pTxtComPort = new QComboBox;
+    m_pTxtBaudRate  = new QComboBox;
 
     QLabel* pLblComPort = new QLabel( "&COM Port:" );
     QLabel* pLblBaudRate = new QLabel( "&Baud rate:" );
@@ -77,37 +83,58 @@ InputDialog::initializeWidget() noexcept
     pLblComPort->setBuddy( m_pTxtComPort );
     pLblBaudRate->setBuddy( m_pTxtBaudRate );
 
-    m_pCmdOk = new QPushButton( "&Ok" );
-    m_pCmdCancel = new QPushButton( "&Cancel" );
+    QPushButton* cmdOk = new QPushButton( "&Ok" );
+    QPushButton* cmdCancel = new QPushButton( "&Cancel" );
 
     QGridLayout* pTopLayout = new QGridLayout;
     pTopLayout->addWidget( pLblComPort, 0, 0 );
     pTopLayout->addWidget( pLblBaudRate, 1, 0 );
     pTopLayout->addWidget( m_pTxtComPort, 0, 1 );
     pTopLayout->addWidget( m_pTxtBaudRate, 1, 1 );
-    pTopLayout->addWidget( m_pCmdOk, 2,0 );
-    pTopLayout->addWidget( m_pCmdCancel, 2, 1 );
+    pTopLayout->addWidget( cmdOk, 2,0 );
+    pTopLayout->addWidget( cmdCancel, 2, 1 );
 
     setLayout( pTopLayout );
-}
 
-/******************************************************************************/
-
-void
-InputDialog::connectWidget() noexcept
-{
     connect(
-            m_pCmdOk
+            cmdOk
         ,   &QPushButton::clicked
         ,   this
         ,   &InputDialog::dialogClose
     );
     connect(
-            m_pCmdCancel
+            cmdCancel
         ,   &QPushButton::clicked
         ,   this
         ,   &InputDialog::reject
     );
+}
+
+/******************************************************************************/
+
+void
+InputDialog::fillComboBoxes() noexcept
+{
+    // Avaliable COM Ports
+    auto serialPorts = QSerialPortInfo::availablePorts();
+
+    for ( auto && port : serialPorts)
+        m_pTxtComPort->addItem( port.portName() );
+
+    // Standard baud rates
+    QStringList baudList = {
+            "1200"
+        ,   "2400"
+        ,   "4800"
+        ,   "9600"
+        ,   "19200"
+        ,   "38400"
+        ,   "57600"
+        ,   "115200"
+    };
+
+    m_pTxtBaudRate->addItems( baudList );
+    m_pTxtBaudRate->setCurrentIndex( baudList.size() - 1 );
 }
 
 /******************************************************************************/
