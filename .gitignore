@@ -34,4 +34,5 @@
 *.user
 
 #Directories
+bin/
 build/
