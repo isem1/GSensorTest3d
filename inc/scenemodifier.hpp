@@ -7,6 +7,11 @@
 
 #include <Qt3DCore/qentity.h>
 #include <Qt3DCore/qtransform.h>
+#include <Qt3DRender/QMesh>
+
+/******************************************************************************/
+
+class ModelLoader;
 
 /******************************************************************************/
 
@@ -30,6 +35,10 @@ public:
 
 /******************************************************************************/
 
+    void setModelLoader( ModelLoader* _modelLoader );
+
+/******************************************************************************/
+
     void enableCuboid( bool enabled ) noexcept;
 
     void setCuboidRotationX( float _angle ) noexcept;
@@ -42,6 +51,10 @@ public:
 
 /******************************************************************************/
 
+public slots:
+
+    void onModelPathChanged();
+
 private:
 
 /******************************************************************************/
@@ -50,9 +63,13 @@ private:
 
 /******************************************************************************/
 
-    Qt3DCore::QEntity* m_cuboidEntity;
+    Qt3DCore::QEntity* m_modelEntity;
 
     Qt3DCore::QTransform* m_transformData;
+
+    Qt3DRender::QMesh* m_objModel;
+
+    ModelLoader* m_pModelLoader;
 
 /******************************************************************************/
 

@@ -11,6 +11,7 @@
 #include "scenemodifier.hpp"
 #include "mainwindow.hpp"
 #include "inputdialog.hpp"
+#include "modelloader.hpp"
 #include "serialport.hpp"
 #include "parameters.hpp"
 
@@ -26,6 +27,7 @@ MainWindow::MainWindow( QWidget *parent )
     initSceneModifier();
     initVirtualPort();
     initInputDialog();
+    initModelLoader();
 }
 
 /******************************************************************************/
@@ -123,8 +125,8 @@ void
 MainWindow::initSceneModifier()
 {
     m_pSceneModifier = new SceneModifier( m_pRootEntity );
-
     m_pSceneModifier->enableCuboid( true );
+
 }
 
 /******************************************************************************/
@@ -146,6 +148,16 @@ MainWindow::initVirtualPort()
     m_pVirtualPort = new VirtualPort;
 
     m_pVirtualPort->setModifier( m_pSceneModifier );
+}
+
+/******************************************************************************/
+
+void
+MainWindow::initModelLoader()
+{
+    m_modelLoader = new ModelLoader( this );
+    m_modelLoader->setSceneModifier( m_pSceneModifier );
+    m_pSceneModifier->setModelLoader( m_modelLoader );
 }
 
 /******************************************************************************/
