@@ -14,11 +14,21 @@ set( CMAKE_INCLUDE_CURRENT_DIR ON )
 set( CMAKE_AUTOMOC ON )
 set( CMAKE_AUTOUIC ON )
 
+# Set some Win32 Specific Settings
+if( WIN32 )
+    set( GUI_TYPE WIN32 )
+endif()
+
+# Set some Apple MacOS Specific settings
+if( APPLE )
+    set( GUI_TYPE MACOSX_BUNDLE )
+endif()
+
 #Enable support of C++17
 if( MSVC )
-set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17" )
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17" )
 else()
-	set( CMAKE_CXX_STANDARD 17 )
+    set( CMAKE_CXX_STANDARD 17 )
 endif()
 
 #Set Qt directories for resolve Qt3DExtras trouble
@@ -63,7 +73,7 @@ set( HEADER_FILES 	${HEADER_DIR}/scenemodifier.hpp
 message( "Added source files:" ${SOURCES} )
 
 
-add_executable( ${PROJECT_NAME} ${SOURCES} ${HEADER_FILES} )
+add_executable( ${PROJECT_NAME} ${GUI_TYPE} ${SOURCES} ${HEADER_FILES} )
 
 #Set up target include directories
 target_include_directories( ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc )
