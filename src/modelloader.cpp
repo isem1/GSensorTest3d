@@ -4,7 +4,7 @@
 #include <QShortcut>
 
 ModelLoader::ModelLoader(QWidget* parent)
-    : QWidget(parent) {
+    : QWidget(parent), m_pSceneModifier(nullptr) {
     m_keyCtlD = new QShortcut(this);
     m_keyCtlD->setKey(Qt::CTRL + Qt::Key_Q);
 }

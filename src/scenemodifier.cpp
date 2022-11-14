@@ -9,7 +9,8 @@
 #include "parameters.hpp"
 #include "modelloader.hpp"
 
-SceneModifier::SceneModifier(Qt3DCore::QEntity* rootEntity) {
+SceneModifier::SceneModifier(Qt3DCore::QEntity* rootEntity)
+    : m_objModel(nullptr), m_pModelLoader(nullptr) {
     // CuboidMesh Transform
     m_transformData = new Qt3DCore::QTransform();
 
