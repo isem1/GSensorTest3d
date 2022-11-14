@@ -6,18 +6,16 @@
 
 class SceneModifier;
 
-class ModelLoader
-    :   public QWidget
-{
+class ModelLoader : public QWidget {
     Q_OBJECT
 
 public:
-    explicit ModelLoader( QWidget* _parent = nullptr );
+    explicit ModelLoader(QWidget* parent = nullptr);
     ~ModelLoader() = default;
 
     QString getPathToModel() const;
 
-    void setSceneModifier( SceneModifier* _sceneModifier );
+    void setSceneModifier(SceneModifier* sceneModifier);
 
 public slots:
     void hotkeyClicked();

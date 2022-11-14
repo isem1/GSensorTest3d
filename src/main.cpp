@@ -3,9 +3,8 @@
 
 #include "mainwindow.hpp"
 
-int main( int _argc, char** _argv )
-{
-    QApplication app( _argc, _argv );
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
 
     MainWindow widget;
     widget.show();

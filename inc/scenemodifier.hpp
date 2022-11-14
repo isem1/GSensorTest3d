@@ -8,20 +8,18 @@
 
 class ModelLoader;
 
-class SceneModifier
-    :   public QObject
-{
+class SceneModifier : public QObject {
     Q_OBJECT
 
 public:
-    explicit SceneModifier( Qt3DCore::QEntity* rootEntity );
+    explicit SceneModifier(Qt3DCore::QEntity* rootEntity);
     ~SceneModifier() = default;
 
-    void setModelLoader( ModelLoader* _modelLoader );
+    void setModelLoader(ModelLoader* modelLoader);
 
-    void enableCuboid( bool enabled ) noexcept;
-    void setCuboidRotationX( float _angle ) noexcept;
-    void setCuboidRotationY( float _angle ) noexcept;
+    void enableCuboid(bool enabled) noexcept;
+    void setCuboidRotationX(float angle) noexcept;
+    void setCuboidRotationY(float angle) noexcept;
     float getCuboidRotationX() noexcept;
     float getCuboidRotationY() noexcept;
 
@@ -34,5 +32,6 @@ private:
     Qt3DCore::QEntity* m_modelEntity;
     Qt3DCore::QTransform* m_transformData;
     Qt3DRender::QMesh* m_objModel;
+
     ModelLoader* m_pModelLoader;
 };

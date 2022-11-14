@@ -6,16 +6,14 @@
 
 class VirtualPort;
 
-class InputDialog
-    :   public QDialog
-{
+class InputDialog : public QDialog {
     Q_OBJECT
 
 public:
-    InputDialog( QWidget* _pWidget = nullptr );
+    InputDialog(QWidget* parent = nullptr);
     ~InputDialog() = default;
 
-    void setSerialPort( VirtualPort* _pComPort ) noexcept;
+    void setSerialPort(VirtualPort* pComPort) noexcept;
 
     QString getComPort() const noexcept;
     QString getBaudRate() const noexcept;
@@ -29,9 +27,7 @@ private slots:
     void dialogClose();
 
 private:
-
     VirtualPort* m_pSerialPort;
     QComboBox* m_pTxtComPort;
     QComboBox* m_pTxtBaudRate;
-
 };

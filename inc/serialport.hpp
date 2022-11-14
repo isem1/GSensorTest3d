@@ -6,24 +6,22 @@
 
 class SceneModifier;
 
-class VirtualPort
-    :   public QObject
-{
+class VirtualPort : public QObject {
     Q_OBJECT
 
 public:
     VirtualPort();
     ~VirtualPort();
 
-    void setModifier( SceneModifier* _modifier ) noexcept;
-    void openComPort( QString _name, QString _speed );
+    void setModifier(SceneModifier* sceneModifier) noexcept;
+    void openComPort(QString name, QString speed);
 
 private slots:
     void readData();
 
 private:
     void connectReadEvent() noexcept;
-    bool isUpdateNeeded( int _angleX, int _angleY ) noexcept;
+    bool isUpdateNeeded(int angleX, int angleY) noexcept;
 
     QSerialPort* m_hComPort;
     SceneModifier* m_pModifier;
