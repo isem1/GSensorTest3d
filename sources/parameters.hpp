@@ -1,7 +1,7 @@
 #pragma once
 
 namespace ProjOpt {
-    constexpr const char* windowTitle = "3D Cube";
+    constexpr const char* windowTitle = "GSensorTest3d";
 
     constexpr int windowWidth = 640;
     constexpr int windowHeight = 480;
