@@ -9,8 +9,6 @@
 #include "parameters.hpp"
 #include "modelloader.hpp"
 
-/******************************************************************************/
-
 SceneModifier::SceneModifier(
          Qt3DCore::QEntity* rootEntity
     )
@@ -37,15 +35,11 @@ SceneModifier::SceneModifier(
     m_modelEntity->addComponent( cuboid );
 }
 
-/******************************************************************************/
-
 void
 SceneModifier::setModelLoader( ModelLoader* _modelLoader )
 {
     m_pModelLoader = _modelLoader;
 }
-
-/******************************************************************************/
 
 void
 SceneModifier::enableCuboid( bool enabled ) noexcept
@@ -53,15 +47,11 @@ SceneModifier::enableCuboid( bool enabled ) noexcept
     m_modelEntity->setEnabled( enabled );
 }
 
-/******************************************************************************/
-
 void
 SceneModifier::setCuboidRotationX( float _angle ) noexcept
 {
     m_transformData->setRotationX( _angle );
 }
-
-/******************************************************************************/
 
 void
 SceneModifier::setCuboidRotationY( float _angle ) noexcept
@@ -69,23 +59,17 @@ SceneModifier::setCuboidRotationY( float _angle ) noexcept
     m_transformData->setRotationZ( _angle );
 }
 
-/******************************************************************************/
-
 float
 SceneModifier::getCuboidRotationX() noexcept
 {
     return m_transformData->rotationX();
 }
 
-/******************************************************************************/
-
 float
 SceneModifier::getCuboidRotationY() noexcept
 {
     return m_transformData->rotationZ();
 }
-
-/******************************************************************************/
 
 void
 SceneModifier::onModelPathChanged()
@@ -99,5 +83,3 @@ SceneModifier::onModelPathChanged()
 
     m_modelEntity->addComponent( m_objModel );
 }
-
-/******************************************************************************/

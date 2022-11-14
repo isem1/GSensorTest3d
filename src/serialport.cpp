@@ -4,15 +4,11 @@
 #include "parameters.hpp"
 #include "serialport.hpp"
 
-/******************************************************************************/
-
 VirtualPort::VirtualPort()
 {
     m_hComPort = nullptr;
     m_pModifier = nullptr;
 }
-
-/******************************************************************************/
 
 VirtualPort::~VirtualPort()
 {
@@ -28,15 +24,11 @@ VirtualPort::~VirtualPort()
     qDebug() << "-----------------------------------";
 }
 
-/******************************************************************************/
-
 void
 VirtualPort::setModifier( SceneModifier* _modifier ) noexcept
 {
     m_pModifier = _modifier;
 }
-
-/******************************************************************************/
 
 void
 VirtualPort::openComPort( QString _name, QString _speed )
@@ -68,8 +60,6 @@ VirtualPort::openComPort( QString _name, QString _speed )
                  << m_hComPort->errorString();
 }
 
-/******************************************************************************/
-
 void
 VirtualPort::readData()
 {
@@ -100,8 +90,6 @@ VirtualPort::readData()
     }
 }
 
-/******************************************************************************/
-
 void
 VirtualPort::connectReadEvent() noexcept
 {
@@ -112,8 +100,6 @@ VirtualPort::connectReadEvent() noexcept
         ,   &VirtualPort::readData
     );
 }
-
-/******************************************************************************/
 
 bool
 VirtualPort::isUpdateNeeded( int _angleX, int _angleY ) noexcept
@@ -129,6 +115,3 @@ VirtualPort::isUpdateNeeded( int _angleX, int _angleY ) noexcept
 
     return false;
 }
-
-/******************************************************************************/
-

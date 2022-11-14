@@ -3,8 +3,6 @@
 
 #include "mainwindow.hpp"
 
-/******************************************************************************/
-
 int main( int _argc, char** _argv )
 {
     QApplication app( _argc, _argv );
@@ -14,5 +12,3 @@ int main( int _argc, char** _argv )
 
     return app.exec();
 }
-
-/******************************************************************************/

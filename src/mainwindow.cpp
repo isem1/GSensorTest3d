@@ -15,8 +15,6 @@
 #include "serialport.hpp"
 #include "parameters.hpp"
 
-/******************************************************************************/
-
 MainWindow::MainWindow( QWidget* _parent )
     :   QWidget( _parent )
 {
@@ -30,16 +28,12 @@ MainWindow::MainWindow( QWidget* _parent )
     initModelLoader();
 }
 
-/******************************************************************************/
-
 MainWindow::~MainWindow()
 {
     delete m_pInputDialog;
     delete m_pVirtualPort;
     delete m_pWindowContainer;
 }
-
-/******************************************************************************/
 
 void
 MainWindow::initWidget()
@@ -51,8 +45,6 @@ MainWindow::initWidget()
     setFixedWidth( ProjOpt::windowWidth );
     setFixedHeight( ProjOpt::windowHeight );
 }
-
-/******************************************************************************/
 
 void
 MainWindow::init3DView()
@@ -67,8 +59,6 @@ MainWindow::init3DView()
     m_p3dView->registerAspect( input );
 }
 
-/******************************************************************************/
-
 void
 MainWindow::initWindowContainer()
 {
@@ -81,8 +71,6 @@ MainWindow::initWindowContainer()
     hLayout->addWidget( m_pWindowContainer, 1 );
     hLayout->addLayout( vLayout );
 }
-
-/******************************************************************************/
 
 void
 MainWindow::initCamController()
@@ -119,8 +107,6 @@ MainWindow::initCamController()
     m_pCamController->setCamera( cameraEntity );
 }
 
-/******************************************************************************/
-
 void
 MainWindow::initSceneModifier()
 {
@@ -128,8 +114,6 @@ MainWindow::initSceneModifier()
     m_pSceneModifier->enableCuboid( true );
 
 }
-
-/******************************************************************************/
 
 void
 MainWindow::initInputDialog()
@@ -140,8 +124,6 @@ MainWindow::initInputDialog()
     m_pInputDialog->show();
 }
 
-/******************************************************************************/
-
 void
 MainWindow::initVirtualPort()
 {
@@ -150,8 +132,6 @@ MainWindow::initVirtualPort()
     m_pVirtualPort->setModifier( m_pSceneModifier );
 }
 
-/******************************************************************************/
-
 void
 MainWindow::initModelLoader()
 {
@@ -159,5 +139,3 @@ MainWindow::initModelLoader()
     m_modelLoader->setSceneModifier( m_pSceneModifier );
     m_pSceneModifier->setModelLoader( m_modelLoader );
 }
-
-/******************************************************************************/

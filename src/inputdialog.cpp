@@ -9,8 +9,6 @@
 #include "parameters.hpp"
 #include "serialport.hpp"
 
-/******************************************************************************/
-
 InputDialog::InputDialog( QWidget* _pWidget )
      :  QDialog(
                 _pWidget
@@ -26,15 +24,11 @@ InputDialog::InputDialog( QWidget* _pWidget )
     fillComboBoxes();
 }
 
-/******************************************************************************/
-
 void
 InputDialog::setSerialPort( VirtualPort* _pComPort ) noexcept
 {
     m_pSerialPort = _pComPort;
 }
-
-/******************************************************************************/
 
 QString
 InputDialog::getComPort() const noexcept
@@ -42,15 +36,11 @@ InputDialog::getComPort() const noexcept
     return m_pTxtComPort->currentText();
 }
 
-/******************************************************************************/
-
 QString
 InputDialog::getBaudRate() const noexcept
 {
     return m_pTxtBaudRate->currentText();
 }
-
-/******************************************************************************/
 
 void
 InputDialog::initializeWidget() noexcept
@@ -60,8 +50,6 @@ InputDialog::initializeWidget() noexcept
     setWindowTitle( "Port config" );
     setFixedSize( 200, 120 );
 }
-
-/******************************************************************************/
 
 void
 InputDialog::addElements() noexcept
@@ -102,8 +90,6 @@ InputDialog::addElements() noexcept
     );
 }
 
-/******************************************************************************/
-
 void
 InputDialog::fillComboBoxes() noexcept
 {
@@ -129,8 +115,6 @@ InputDialog::fillComboBoxes() noexcept
     m_pTxtBaudRate->setCurrentIndex( baudList.size() - 1 );
 }
 
-/******************************************************************************/
-
 void
 InputDialog::dialogClose()
 {
@@ -141,5 +125,3 @@ InputDialog::dialogClose()
         );
     accept();
 }
-
-/******************************************************************************/

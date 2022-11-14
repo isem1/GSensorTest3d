@@ -3,8 +3,6 @@
 
 #include <QShortcut>
 
-/******************************************************************************/
-
 ModelLoader::ModelLoader( QWidget* _parent )
     :    QWidget( _parent )
 {
@@ -12,15 +10,11 @@ ModelLoader::ModelLoader( QWidget* _parent )
     m_keyCtlD->setKey( Qt::CTRL + Qt::Key_Q );
 }
 
-/******************************************************************************/
-
 QString
 ModelLoader::getPathToModel() const
 {
     return m_pathToModel;
 }
-
-/******************************************************************************/
 
 void
 ModelLoader::connectSignals()
@@ -40,16 +34,12 @@ ModelLoader::connectSignals()
     );
 }
 
-/******************************************************************************/
-
 void
 ModelLoader::setSceneModifier( SceneModifier* _sceneModifier )
 {
     m_pSceneModifier = _sceneModifier;
     connectSignals();
 }
-
-/******************************************************************************/
 
 void
 ModelLoader::hotkeyClicked()
@@ -62,5 +52,3 @@ ModelLoader::hotkeyClicked()
     if( !m_pathToModel.isEmpty() )
         emit modelPathChanged();
 }
-
-/******************************************************************************/
