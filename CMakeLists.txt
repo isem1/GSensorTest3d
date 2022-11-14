@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.21)
 
 include(cmake/utilities.cmake)
 project(GSensorTest3d LANGUAGES CXX)
