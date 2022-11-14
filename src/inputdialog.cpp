@@ -93,7 +93,7 @@ InputDialog::addElements() noexcept
 void
 InputDialog::fillComboBoxes() noexcept
 {
-    // Avaliable COM Ports
+    // Available COM Ports
     auto serialPorts = QSerialPortInfo::availablePorts();
 
     for( auto && port : serialPorts)
