@@ -1,5 +1,4 @@
-#ifndef CUBE3D_PARAMETERS_HPP_
-#define CUBE3D_PARAMETERS_HPP_
+#pragma once
 
 namespace ProjOpt {
     constexpr const char * windowTitle = "3D Cube";
@@ -17,5 +16,3 @@ namespace ProjOpt {
 
     constexpr int coordEps = 2;
 };
-
-#endif // CUBE3D_PARAMETERS_HPP_

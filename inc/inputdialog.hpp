@@ -1,5 +1,4 @@
-#ifndef CUBE3D_INPUTDIALOG_HPP_
-#define CUBE3D_INPUTDIALOG_HPP_
+#pragma once
 
 #include <QDialog>
 #include <QtWidgets/QComboBox>
@@ -36,5 +35,3 @@ private:
     QComboBox* m_pTxtBaudRate;
 
 };
-
-#endif // CUBE3D_INPUTDIALOG_HPP_

@@ -1,5 +1,4 @@
-#ifndef CUBE3D_MODELLOADER_HPP_
-#define CUBE3D_MODELLOADER_HPP_
+#pragma once
 
 #include <QtCore/QObject>
 #include <QFileDialog>
@@ -35,5 +34,3 @@ private:
     QShortcut* m_keyCtlD;
     SceneModifier* m_pSceneModifier;
 };
-
-#endif // CUBE3D_MODELLOADER_HPP_

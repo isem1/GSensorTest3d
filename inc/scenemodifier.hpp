@@ -1,5 +1,4 @@
-#ifndef CUBE3D_SCENEMODIFIER_HPP_
-#define CUBE3D_SCENEMODIFIER_HPP_
+#pragma once
 
 #include <QtCore/QObject>
 
@@ -37,5 +36,3 @@ private:
     Qt3DRender::QMesh* m_objModel;
     ModelLoader* m_pModelLoader;
 };
-
-#endif // CUBE3D_SCENEMODIFIER_HPP_

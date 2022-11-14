@@ -1,5 +1,4 @@
-#ifndef CUBE3D_VIRTUALPORT_HPP_
-#define CUBE3D_VIRTUALPORT_HPP_
+#pragma once
 
 #include <QSerialPortInfo>
 #include <QSerialPort>
@@ -29,5 +28,3 @@ private:
     QSerialPort* m_hComPort;
     SceneModifier* m_pModifier;
 };
-
-#endif // CUBE3D_VIRTUALPORT_HPP_

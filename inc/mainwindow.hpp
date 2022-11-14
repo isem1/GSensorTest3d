@@ -1,5 +1,4 @@
-#ifndef CUBE3D_MAINWINDOW_HPP_
-#define CUBE3D_MAINWINDOW_HPP_
+#pragma once
 
 #include <QWidget>
 
@@ -44,5 +43,3 @@ private:
     VirtualPort* m_pVirtualPort;
     ModelLoader* m_modelLoader;
 };
-
-#endif // CUBE3D_MAINWINDOW_HPP_
