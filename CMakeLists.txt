@@ -21,7 +21,10 @@ set(CXSOURCES_DIR ${PROJECT_SOURCE_DIR}/sources)
 
 set(W32RESFILE ${PROJECT_SOURCE_DIR}/resources/resources.rc)
 
-set(QMLRESFILES ${PROJECT_SOURCE_DIR}/resources/qml.qrc)
+set(QMLRESFILES ${PROJECT_SOURCE_DIR}/resources/qml.qrc
+                ${PROJECT_SOURCE_DIR}/sources/qml.qrc)
+
+set(QMLSOURCES ${CXSOURCES_DIR}/main.qml)
 
 set(HEADER_FILES ${CXSOURCES_DIR}/scenemodifier.hpp
                  ${CXSOURCES_DIR}/inputdialog.hpp
@@ -38,9 +41,9 @@ set(SOURCE_FILES ${CXSOURCES_DIR}/main.cpp
                  ${CXSOURCES_DIR}/modelloader.cpp)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-format_source_group(${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${W32RESFILE})
+format_source_group(${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${QMLSOURCES} ${W32RESFILE})
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${W32RESFILE})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${QMLSOURCES} ${W32RESFILE})
 set_property(TARGET ${PROJECT_NAME} PROPERTY WIN32_EXECUTABLE TRUE)
 
 target_link_libraries(${PROJECT_NAME} Qt::Core Qt::Quick Qt::Widgets Qt::3DCore Qt::3DExtras
