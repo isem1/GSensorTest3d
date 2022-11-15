@@ -14,7 +14,7 @@ set(CMAKE_BINARY_DIR ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
-find_package(Qt5 REQUIRED COMPONENTS Core Widgets 3DCore 3DInput
+find_package(Qt5 REQUIRED COMPONENTS Core Quick Widgets 3DCore 3DInput
                                      3DExtras 3DRender SerialPort)
 
 set(CXSOURCES_DIR ${PROJECT_SOURCE_DIR}/sources)
@@ -41,5 +41,5 @@ format_source_group(${SOURCE_FILES} ${HEADER_FILES})
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 set_property(TARGET ${PROJECT_NAME} PROPERTY WIN32_EXECUTABLE TRUE)
 
-target_link_libraries(${PROJECT_NAME} Qt::Core Qt::Widgets Qt::3DCore Qt::3DExtras
+target_link_libraries(${PROJECT_NAME} Qt::Core Qt::Quick Qt::Widgets Qt::3DCore Qt::3DExtras
                                       Qt::3DRender Qt::3DInput Qt::SerialPort)
