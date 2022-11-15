@@ -26,19 +26,19 @@ set(QMLRESFILES ${PROJECT_SOURCE_DIR}/resources/qml.qrc
 
 set(QMLSOURCES ${CXSOURCES_DIR}/main.qml)
 
-set(HEADER_FILES ${CXSOURCES_DIR}/scenemodifier.hpp
-                 ${CXSOURCES_DIR}/inputdialog.hpp
-                 ${CXSOURCES_DIR}/serialport.hpp
-                 ${CXSOURCES_DIR}/parameters.hpp
-                 ${CXSOURCES_DIR}/mainwindow.hpp
-                 ${CXSOURCES_DIR}/modelloader.hpp)
+set(HEADER_FILES ${CXSOURCES_DIR}/core/scenemodifier.hpp
+                 ${CXSOURCES_DIR}/core/inputdialog.hpp
+                 ${CXSOURCES_DIR}/core/serialport.hpp
+                 ${CXSOURCES_DIR}/core/parameters.hpp
+                 ${CXSOURCES_DIR}/core/mainwindow.hpp
+                 ${CXSOURCES_DIR}/core/modelloader.hpp)
 
 set(SOURCE_FILES ${CXSOURCES_DIR}/main.cpp
-                 ${CXSOURCES_DIR}/scenemodifier.cpp
-                 ${CXSOURCES_DIR}/inputdialog.cpp
-                 ${CXSOURCES_DIR}/serialport.cpp
-                 ${CXSOURCES_DIR}/mainwindow.cpp
-                 ${CXSOURCES_DIR}/modelloader.cpp)
+                 ${CXSOURCES_DIR}/core/scenemodifier.cpp
+                 ${CXSOURCES_DIR}/core/inputdialog.cpp
+                 ${CXSOURCES_DIR}/core/serialport.cpp
+                 ${CXSOURCES_DIR}/core/mainwindow.cpp
+                 ${CXSOURCES_DIR}/core/modelloader.cpp)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 format_source_group(${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${QMLSOURCES} ${W32RESFILE})
