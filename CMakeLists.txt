@@ -19,6 +19,8 @@ find_package(Qt5 REQUIRED COMPONENTS Core Widgets 3DCore 3DInput
 
 set(CXSOURCES_DIR ${PROJECT_SOURCE_DIR}/sources)
 
+set(QMLRESFILES ${PROJECT_SOURCE_DIR}/resources/qml.qrc)
+
 set(HEADER_FILES ${CXSOURCES_DIR}/scenemodifier.hpp
                  ${CXSOURCES_DIR}/inputdialog.hpp
                  ${CXSOURCES_DIR}/serialport.hpp
