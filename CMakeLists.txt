@@ -24,7 +24,8 @@ set(W32RESFILE ${PROJECT_SOURCE_DIR}/resources/resources.rc)
 set(QMLRESFILES ${PROJECT_SOURCE_DIR}/resources/qml.qrc
                 ${PROJECT_SOURCE_DIR}/sources/qml.qrc)
 
-set(QMLSOURCES ${CXSOURCES_DIR}/main.qml)
+set(QMLSOURCES ${CXSOURCES_DIR}/main.qml
+               ${CXSOURCES_DIR}/pages/ApplicationScene3dView.qml)
 
 set(HEADER_FILES ${CXSOURCES_DIR}/core/scenemodifier.hpp
                  ${CXSOURCES_DIR}/core/inputdialog.hpp
