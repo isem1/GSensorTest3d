@@ -19,6 +19,8 @@ find_package(Qt5 REQUIRED COMPONENTS Core Quick Widgets 3DCore 3DInput
 
 set(CXSOURCES_DIR ${PROJECT_SOURCE_DIR}/sources)
 
+set(W32RESFILE ${PROJECT_SOURCE_DIR}/resources/resources.rc)
+
 set(QMLRESFILES ${PROJECT_SOURCE_DIR}/resources/qml.qrc)
 
 set(HEADER_FILES ${CXSOURCES_DIR}/scenemodifier.hpp
@@ -36,9 +38,9 @@ set(SOURCE_FILES ${CXSOURCES_DIR}/main.cpp
                  ${CXSOURCES_DIR}/modelloader.cpp)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-format_source_group(${SOURCE_FILES} ${HEADER_FILES})
+format_source_group(${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${W32RESFILE})
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${W32RESFILE})
 set_property(TARGET ${PROJECT_NAME} PROPERTY WIN32_EXECUTABLE TRUE)
 
 target_link_libraries(${PROJECT_NAME} Qt::Core Qt::Quick Qt::Widgets Qt::3DCore Qt::3DExtras

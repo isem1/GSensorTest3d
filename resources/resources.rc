@@ -1,0 +1,40 @@
+#include <windows.h>
+
+#ifndef DEBUG
+  #define VER_DEBUG  0
+#else
+  #define VER_DEBUG  VS_FF_DEBUG
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION    0,0,0,0
+PRODUCTVERSION 0,0,0,0
+
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEFLAGS       VER_DEBUG
+FILEOS          VOS__WINDOWS32
+FILETYPE        VFT_APP
+FILESUBTYPE     VFT2_UNKNOWN
+
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName",       "NULL\0"
+            VALUE "FileDescription",   "GSensorTest3d\0"
+            VALUE "FileVersion",       "0.0.0.0\0"
+            VALUE "InternalName",      "GSensorTest3d\0"
+            VALUE "LegalCopyright",    "NULL\0"
+            VALUE "OriginalFilename",  "GSensorTest3d.exe\0"
+            VALUE "ProductName",       "GSensorTest3d\0"
+            VALUE "ProductVersion",    "0.0.0.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
+
+IDI_ICON1    ICON    "icon.ico"
