@@ -25,21 +25,25 @@ set(QMLRESFILES ${PROJECT_SOURCE_DIR}/resources/qml.qrc
                 ${PROJECT_SOURCE_DIR}/sources/qml.qrc)
 
 set(QMLSOURCES ${CXSOURCES_DIR}/main.qml
-               ${CXSOURCES_DIR}/pages/ApplicationScene3dView.qml)
+               ${CXSOURCES_DIR}/pages/common/GroupControlView.qml
+               ${CXSOURCES_DIR}/pages/ApplicationScene3dView.qml
+               ${CXSOURCES_DIR}/pages/PortSettingsView.qml)
 
 set(HEADER_FILES ${CXSOURCES_DIR}/core/scenemodifier.hpp
                  ${CXSOURCES_DIR}/core/inputdialog.hpp
                  ${CXSOURCES_DIR}/core/serialport.hpp
                  ${CXSOURCES_DIR}/core/parameters.hpp
                  ${CXSOURCES_DIR}/core/mainwindow.hpp
-                 ${CXSOURCES_DIR}/core/modelloader.hpp)
+                 ${CXSOURCES_DIR}/core/modelloader.hpp
+                 ${CXSOURCES_DIR}/model/PortSettingsModel.h)
 
 set(SOURCE_FILES ${CXSOURCES_DIR}/main.cpp
                  ${CXSOURCES_DIR}/core/scenemodifier.cpp
                  ${CXSOURCES_DIR}/core/inputdialog.cpp
                  ${CXSOURCES_DIR}/core/serialport.cpp
                  ${CXSOURCES_DIR}/core/mainwindow.cpp
-                 ${CXSOURCES_DIR}/core/modelloader.cpp)
+                 ${CXSOURCES_DIR}/core/modelloader.cpp
+                 ${CXSOURCES_DIR}/model/PortSettingsModel.cpp)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 format_source_group(${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${QMLSOURCES} ${W32RESFILE})
