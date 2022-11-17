@@ -3,7 +3,6 @@ import QtQuick.Controls 2.4
 
 import app 1.0
 import "common"
-import QtCharts 2.3
 
 GroupControlView {
     id: current
