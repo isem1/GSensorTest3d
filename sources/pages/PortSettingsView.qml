@@ -8,6 +8,8 @@ GroupControlView {
     id: current
     title: qsTr("Port Settings")
 
+    signal onSerialOpenClicked(string name, int speed)
+
     PortSettingsModel {
         id: model
     }
@@ -55,6 +57,11 @@ GroupControlView {
             id: btnDataStart
             width: 50
             text: qsTr("Open")
+
+            onClicked: {
+                current.onSerialOpenClicked(cbComPort.currentText,
+                    parseInt(cbBaudRate.currentText))
+            }
         }
     }
 }
