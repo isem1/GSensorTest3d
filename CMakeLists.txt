@@ -14,8 +14,10 @@ set(CMAKE_BINARY_DIR ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
-find_package(Qt5 REQUIRED COMPONENTS Core Quick Widgets 3DCore 3DInput
-                                     3DExtras 3DRender SerialPort)
+set(QTLIBS Core Quick Widgets 3DCore 3DInput 3DExtras 3DRender SerialPort)
+
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS ${QTLIBS})
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS ${QTLIBS})
 
 set(CXSOURCES_DIR ${PROJECT_SOURCE_DIR}/sources)
 
