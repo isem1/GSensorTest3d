@@ -37,7 +37,8 @@ set(HEADER_FILES ${CXSOURCES_DIR}/core/scenemodifier.hpp
                  ${CXSOURCES_DIR}/core/parameters.hpp
                  ${CXSOURCES_DIR}/core/mainwindow.hpp
                  ${CXSOURCES_DIR}/core/modelloader.hpp
-                 ${CXSOURCES_DIR}/model/PortSettingsModel.h)
+                 ${CXSOURCES_DIR}/model/PortSettingsModel.h
+                 ${CXSOURCES_DIR}/core/SerialPortReader.h)
 
 set(SOURCE_FILES ${CXSOURCES_DIR}/main.cpp
                  ${CXSOURCES_DIR}/core/scenemodifier.cpp
@@ -45,7 +46,8 @@ set(SOURCE_FILES ${CXSOURCES_DIR}/main.cpp
                  ${CXSOURCES_DIR}/core/serialport.cpp
                  ${CXSOURCES_DIR}/core/mainwindow.cpp
                  ${CXSOURCES_DIR}/core/modelloader.cpp
-                 ${CXSOURCES_DIR}/model/PortSettingsModel.cpp)
+                 ${CXSOURCES_DIR}/model/PortSettingsModel.cpp
+                 ${CXSOURCES_DIR}/core/SerialPortReader.cpp)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 format_source_group(${SOURCE_FILES} ${HEADER_FILES} ${QMLRESFILES} ${QMLSOURCES} ${W32RESFILE})
