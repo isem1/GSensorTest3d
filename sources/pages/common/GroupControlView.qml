@@ -1,48 +1,78 @@
-import QtQuick 2.0
+import QtQuick 2.9
+import QtQuick.Layouts 1.3
 
-Rectangle {
-    id: current
-    color: "#e4e4e4"
+Item {
+    property bool expanded: true
+    property bool collapsable: true
+    property string title: "#title"
 
-    property string title
-    default property alias contentItem: content.data
+    property Component contentDelegate: null
+    readonly property Item contentItem: loader.item
 
-    Rectangle {
-        id: header
-        color: "#b8b8b8"
-        height: txt.height + 8
-        anchors.left: parent.left
-        anchors.right: parent.right
+    id: root
+    implicitWidth: layout.implicitWidth
+    implicitHeight: layout.implicitHeight
 
-        MouseArea {
-            id: mouseArea
-            anchors.fill: parent
-            hoverEnabled: true
+    ColumnLayout {
+        id: layout
+        spacing: 0
+        anchors.fill: parent
 
-            onEntered: { header.color = "#a8a8a8" }
-            onExited: { header.color = "#b8b8b8" }
+        Rectangle {
+            id: headerRect
+            color: "#a2a2a2"
+            Layout.fillWidth: true
+            Layout.minimumHeight: txt.height
 
-            Rectangle {
-                id: rect
-                color: "transparent"
+            MouseArea {
+                id: msarea
                 anchors.fill: parent
-                anchors.leftMargin: 10
+                hoverEnabled: true
+
+                onPressed: {
+                    headerRect.color = "#676767"
+                }
+
+                onReleased: {
+                    headerRect.color = "#a2a2a2"
+
+                    if (root.collapsable)
+                        root.expanded = !root.expanded
+                }
+
+                onExited: {
+                    headerRect.color = "#a2a2a2"
+                }
 
                 Text {
                     id: txt
+                    padding: 5
                     text: title
                     font.pointSize: 12
-                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
+        }
+
+        Item {
+            id: clipper
+            clip: true
+            visible: root.expanded
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.preferredHeight: root.expanded ? root.contentItem.implicitHeight : 0
+
+            Rectangle {
+                id: bodyRect
+                color: "#dddddd"
+                anchors.fill: parent
+
+                Loader {
+                    id: loader
+                    active: true
+                    anchors.fill: parent
+                    sourceComponent: root.contentDelegate
                 }
             }
         }
     }
-
-     Column {
-        id: content
-        anchors.top: header.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-     }
 }

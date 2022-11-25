@@ -1,23 +1,19 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.4
 
-import app 1.0
-import "common"
+Item {
+    id: root
+    implicitHeight: 50
 
-GroupControlView {
-    id: current
-    title: qsTr("Port Settings")
-
+    property var serialPortList: null
     signal onSerialOpenClicked(string name, int speed)
-
-    PortSettingsModel {
-        id: model
-    }
 
     Row {
         id: row
+
         spacing: 10
         padding: 10
+        anchors.verticalCenter: parent.verticalCenter
 
         Label {
             text: qsTr("Port:")
@@ -28,7 +24,8 @@ GroupControlView {
             id: cbComPort
             width: 70
 
-            model: model.serialPortList
+            model: root.serialPortList
+            enabled: root.serialPortList? true : false
         }
 
         Label {
@@ -57,9 +54,10 @@ GroupControlView {
             id: btnDataStart
             width: 50
             text: qsTr("Open")
+            enabled: root.serialPortList? true : false
 
-            onClicked: {
-                current.onSerialOpenClicked(cbComPort.currentText,
+            onReleased: {
+                root.onSerialOpenClicked(cbComPort.currentText,
                     parseInt(cbBaudRate.currentText))
             }
         }

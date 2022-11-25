@@ -12,6 +12,27 @@ Scene3D {
     aspects: ["render", "logic", "input"]
     cameraAspectRatioMode: Scene3D.AutomaticAspectRatio
 
+    function setRotation1(pitch, roll) {
+        transform3d.setRotationX(pitch)
+        transform3d.setRotationZ(roll)
+    }
+
+    function setRotation12(yaw, pitch, roll) {
+        transform3d.setRotationY(yaw)
+        transform3d.setRotationX(pitch)
+        transform3d.setRotationZ(roll)
+    }
+
+    function setRotation2(pitch, roll) {
+        transform3d2.setRotationX(pitch)
+        transform3d2.setRotationZ(roll)
+    }
+
+    function setRotation3(pitch, roll) {
+        transform3d3.setRotationX(pitch)
+        transform3d3.setRotationZ(roll)
+    }
+
     Entity {
         id: sceneRoot
 

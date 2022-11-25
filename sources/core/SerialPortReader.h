@@ -12,6 +12,11 @@ signals:
     void newAccelerometerData(float x, float y, float z);
     void newMagnetometerData(float x, float y, float z);
 
+    void newAngleDataA(float pitch, float roll);
+    void newAngleDataG(float pitch, float roll);
+    void newAngleDataC(float pitch, float roll);
+    void newAngleDataC2(float yaw, float pitch, float roll);
+
 public:
     static void registerQmlType();
     SerialPortReader(QObject* parent = nullptr);

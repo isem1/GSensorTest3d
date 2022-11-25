@@ -29,7 +29,8 @@ set(QMLRESFILES ${PROJECT_SOURCE_DIR}/resources/qml.qrc
 set(QMLSOURCES ${CXSOURCES_DIR}/main.qml
                ${CXSOURCES_DIR}/pages/common/GroupControlView.qml
                ${CXSOURCES_DIR}/pages/ApplicationScene3dView.qml
-               ${CXSOURCES_DIR}/pages/PortSettingsView.qml)
+               ${CXSOURCES_DIR}/pages/PortSettingsView.qml
+               ${CXSOURCES_DIR}/pages/GyroscopeSettingsView.qml)
 
 set(HEADER_FILES ${CXSOURCES_DIR}/core/scenemodifier.hpp
                  ${CXSOURCES_DIR}/core/inputdialog.hpp

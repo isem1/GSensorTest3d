@@ -3,6 +3,7 @@
         <file>main.qml</file>
         <file>pages/ApplicationScene3dView.qml</file>
         <file>pages/PortSettingsView.qml</file>
+        <file>pages/GyroscopeSettingsView.qml</file>
         <file>pages/common/GroupControlView.qml</file>
     </qresource>
 </RCC>
